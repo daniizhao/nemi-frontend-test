@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "BCN - TERRASSA",
+    "area": "Barcelona",
+    "client": "TMB",
+    "duration": "15:30",
+    "active": "true",
+    "latitude": 41.390205,
+    "longitude": 2.154007
+  },
+  {
+    "id": 2,
+    "name": "BCN - St Cugat",
+    "area": "Barcelona",
+    "client": "Adif",
+    "duration": "40:30",
+    "active": "false",
+    "latitude": 41.390205,
+    "longitude": 2.154007
+  }
+]
