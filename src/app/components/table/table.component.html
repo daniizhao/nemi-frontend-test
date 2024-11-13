@@ -7,13 +7,15 @@
         (onKeyUp)="applyFilters($event)"
       ></app-input>
     </div>
-    <div *ngIf="showCreateButton">
-      <app-button
-        [label]="createButtonText"
-        [icon]="createButtonIcon"
-        (onClick)="handleCreateButtonClick()"
-      ></app-button>
-    </div>
+    @if (showCreateButton) {
+      <div>
+        <app-button
+          [label]="createButtonText"
+          [icon]="createButtonIcon"
+          (onClick)="handleCreateButtonClick()"
+        ></app-button>
+      </div>
+    }
   </div>
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="status">
@@ -61,8 +63,12 @@
     Issue is open on github: https://github.com/angular/components/issues/22349
      -->
     <tr class="mat-row no-data" *matNoDataRow>
-      <td *ngIf="dataSource.data.length === 0" class="mat-cell" [colSpan]="displayedColumns.length"> {{ 'SERVICES.DATA.EMPTY' | translate}} </td>
-      <td *ngIf="dataSource.data.length > 0 && dataSource.filteredData.length === 0" class="mat-cell" [colSpan]="displayedColumns.length"> {{ 'SERVICES.DATA.NO_DATA' | translate}} </td>
+      @if (dataSource.data.length === 0) {
+        <td class="mat-cell" [colSpan]="displayedColumns.length"> {{ 'SERVICES.DATA.EMPTY' | translate}} </td>
+      }
+      @if (dataSource.data.length > 0 && dataSource.filteredData.length === 0) {
+        <td class="mat-cell" [colSpan]="displayedColumns.length"> {{ 'SERVICES.DATA.NO_DATA' | translate}} </td>
+      }
     </tr>
 
   </table>

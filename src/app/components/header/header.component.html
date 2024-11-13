@@ -1,4 +1,9 @@
 <div class="header-wrapper">
+  @if (hasBackButton) {
+    <div class="header-back-icon" (click)="handleBackClick()">
+      <mat-icon>arrow_back_ios</mat-icon>
+    </div>
+  }
   <div class="header-title" >
     <span [ngClass]="{'cursor-pointer': isTitleClickable}" (click)="handleTitleClick()">
       {{title | translate}}

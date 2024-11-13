@@ -1,5 +1,7 @@
 <button mat-flat-button [ngClass]="style" (click)="handleButtonClick()" >
-  <mat-icon *ngIf="icon !== ''" matPrefix>{{icon}}</mat-icon>
+  @if (icon !== '') {
+    <mat-icon matPrefix>{{icon}}</mat-icon>
+  }
   <span>
     {{label | translate}}
   </span>

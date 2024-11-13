@@ -15,24 +15,33 @@
 // that you are using.
 :root {
   @include mat.all-component-themes(m3-theme.$light-theme);
+
   --primary-color: #0dedab;
+  --primary-color-lighter: color-mix(in srgb, var(--primary-color), white 75%);
+
   --secondary-color: #280a54;
+
+  --layer-color: rgba(21, 29, 25, 0.12);
 
   //------------------------- CUSTOM COMPONENTS VARIABLES
   // TABLE
   --mat-table-background-color: transparent;
   --mat-table-header-headline-color: white;
   --mat-table-header-headline-weight: 900;
-  --mat-table-row-item-outline-color: var(var(--secondary-color));
+  --mat-table-row-item-outline-color: var(--secondary-color);
   --mat-table-row-item-outline-color: transparent;
   --mat-paginator-container-background-color: white;
 
   // TEXT FIELD
-  --mdc-filled-text-field-container-color: color-mix(in srgb, var(--primary-color), transparent 75%);
+  --mdc-filled-text-field-container-color: var(--primary-color-lighter);
   --mdc-filled-text-field-focus-active-indicator-color: var(--primary-color);
 
   // BUTTON
   --mdc-filled-button-container-color: var(--primary-color);
+
+  // SELECT
+  --mat-select-panel-background-color: var(--primary-color-lighter);
+  --mat-option-selected-state-layer-color: var(--primary-color);
 
 }
 

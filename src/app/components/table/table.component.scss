@@ -15,7 +15,8 @@
     background-color: var(--secondary-color);
   }
 
-  .mat-mdc-row:nth-child(odd) {
+  .mat-mdc-row:nth-child(odd),
+  .mat-cell {
     background-color: white;
   }
 

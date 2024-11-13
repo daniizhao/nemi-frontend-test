@@ -19,10 +19,28 @@
     }
   },
   "CREATE_SERVICE": {
-    "TITLE": "New Service"
+    "TITLE": "New Service",
+    "FORM_FIELDS": {
+      "ID": "ID",
+      "NAME": "Name",
+      "AREA": "Area of service",
+      "CLIENT": "Client of the service",
+      "DURATION": "Duration",
+      "CENTER_LOC": "Center of service",
+      "LAT": "Latitude",
+      "LNG": "Longitude",
+      "ACTIVE": "Active"
+    },
+    "MESSAGES": {
+      "REQUIRED": "Field is required."
+    },
+    "LABELS": {
+      "CREATE": "Create New Service"
+    }
   },
   "LABELS": {
     "SEARCH": "Search",
-    "NEW": "New"
+    "NEW": "New",
+    "CANCEL": "Cancel"
   }
 }

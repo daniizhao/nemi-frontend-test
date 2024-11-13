@@ -1,6 +1,14 @@
 .header-wrapper {
   padding: 16px 64px;
   background-color: var(--secondary-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  .header-back-icon {
+    color: var(--primary-color);
+    cursor: pointer;
+  }
   .header-title {
     font-size: xx-large;
     font-weight: bold;
