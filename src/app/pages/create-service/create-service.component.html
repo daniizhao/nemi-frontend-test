@@ -5,7 +5,7 @@
 ></app-header>
 <div class="content-wrapper">
   <app-create-service-form
-    (onSubmitClick)="onSubmit()"
+    (onSubmitClick)="onSubmit($event)"
     (onCancelClick)="onCancel()"
   ></app-create-service-form>
 </div>

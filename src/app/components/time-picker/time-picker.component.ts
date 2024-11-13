@@ -20,10 +20,11 @@ export class TimePickerComponent implements OnInit {
 
   @Output() onValueChange: EventEmitter<any> = new EventEmitter();
 
-  minute_options: string[] = [];
-  seconds_options: string[] = [];
+  hourOptions: string[] = [];
+  minuteOptions: string[] = [];
+  secondsOptions: string[] = [];
 
-  split_time: string[] = [];
+  splitTime: string[] = [];
 
   showDropdown: boolean = false;
 
@@ -36,17 +37,14 @@ export class TimePickerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    for(let i = 0; i < 60; i++) {
-      this.minute_options.push(this.formatNumberToString(i));
-      this.seconds_options.push(this.formatNumberToString(i));
-    }
-    this.split_time = this.timeValue.split(':');
-    console.log("split", this.split_time)
+    this.hourOptions = Array.from({length: 24}, (_, i) => this.formatNumberToString(i));
+    this.minuteOptions = Array.from({length: 60}, (_, i) => this.formatNumberToString(i));
+    this.secondsOptions = Array.from({length: 60}, (_, i) => this.formatNumberToString(i));
+    this.splitTime = this.timeValue.split(':');
   }
 
   private scrollSelectedOptionsIntoView() {
     let elements = document.querySelectorAll('.selected');
-    console.log("elements", elements)
     elements.forEach((element) => {
       element.scrollIntoView({
         behavior: 'smooth',
@@ -60,7 +58,7 @@ export class TimePickerComponent implements OnInit {
     if (show) {
       setTimeout(() => {
         this.scrollSelectedOptionsIntoView();
-      }, 100)
+      }, 200);
     }
   }
 
@@ -68,13 +66,8 @@ export class TimePickerComponent implements OnInit {
     event.preventDefault();
   }
 
-  onSelectMinute(minValue: string) {
-    this.split_time[0] = minValue;
-    this.onValueChange.emit(this.split_time.join(':'));
-  }
-
-  onSelectSeconds(secValue: string) {
-    this.split_time[1] = secValue;
-    this.onValueChange.emit(this.split_time.join(':'));
+  onSelectChange(splitIndex: number, value: string) {
+    this.splitTime[splitIndex] = value;
+    this.onValueChange.emit(this.splitTime.join(':'));
   }
 }

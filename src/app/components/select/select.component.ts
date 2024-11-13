@@ -1,7 +1,7 @@
-import { booleanAttribute, Component, Input } from '@angular/core';
+import { booleanAttribute, Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
+import { MatSelectChange, MatSelectModule } from '@angular/material/select';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -17,6 +17,12 @@ export class SelectComponent {
   @Input() label: string = '';
   @Input() options: any[] = [];
 
+  @Output() onSelectChange: EventEmitter<any> = new EventEmitter();
+
   constructor() {}
+
+  handleSelectionChange(event: MatSelectChange) {
+    this.onSelectChange.emit(event.value);
+  }
 
 }

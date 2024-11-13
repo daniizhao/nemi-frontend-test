@@ -11,3 +11,8 @@ export const CLIENTS_OPTIONS = [
   'Alsa',
   'FlixBus'
 ]
+
+export const BCN_COORDS = {
+  lat: 41.390205,
+  lng: 2.154007
+}

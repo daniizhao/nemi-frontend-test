@@ -17,7 +17,7 @@ export class JsonUtilsService {
     return this.http.get(path);
   }
 
-  writeJson(path: string, content: any) {
+  writeJson(path: string, body: any) {
 
   }
 

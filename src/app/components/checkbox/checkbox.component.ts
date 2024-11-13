@@ -1,6 +1,6 @@
 import { booleanAttribute, Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCheckboxChange, MatCheckboxModule } from '@angular/material/checkbox';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -15,8 +15,12 @@ export class CheckboxComponent {
   @Input({transform: booleanAttribute}) required: boolean = false;
   @Input() label: string = '';
 
-  @Output() onCheckboxClick: EventEmitter<any> = new EventEmitter();
+  @Output() onCheckboxChange: EventEmitter<any> = new EventEmitter();
 
   constructor() {}
+
+  handleCheckboxChange(event: MatCheckboxChange) {
+    this.onCheckboxChange.emit(event.checked);
+  }
 
 }

@@ -6,10 +6,8 @@
     "client": "TMB",
     "duration": "15:30",
     "active": true,
-    "centerLocation": {
-      "latitude": 41.390205,
-      "longitude": 2.154007
-    }
+    "lat": 41.390205,
+    "lng": 2.154007
   },
   {
     "id": 1,
@@ -18,10 +16,8 @@
     "client": "TMB",
     "duration": "15:30",
     "active": true,
-    "centerLocation": {
-      "latitude": 41.390205,
-      "longitude": 2.154007
-    }
+    "lat": 41.390205,
+    "lng": 2.154007
   },
   {
     "id": 2,
@@ -30,9 +26,7 @@
     "client": "Adif",
     "duration": "40:30",
     "active": false,
-    "centerLocation": {
-      "latitude": 41.390205,
-      "longitude": 2.154007
-    }
+    "lat": 41.390205,
+    "lng": 2.154007
   }
 ]

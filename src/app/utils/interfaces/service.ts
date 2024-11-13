@@ -3,10 +3,8 @@ export default interface Service {
   name: string,
   area: string,
   client: string,
-  duration: Date,
+  duration: string,
   active: boolean,
-  centerLocation: {
-    lat: number,
-    lng: number
-  }
+  lat: number,
+  lng: number
 }

@@ -1,62 +1,79 @@
-<div class="form-wrapper">
-  <div class="form-row-container">
-    <div class="form-column-container">
-      <div class="form-row-container">
-        <app-input
-          [type]="'number'"
-          [label]="'CREATE_SERVICE.FORM_FIELDS.ID'"
-          [required]="true"
-        ></app-input>
-        <app-input
-          [label]="'CREATE_SERVICE.FORM_FIELDS.NAME'"
-          [required]="true"
-        ></app-input>
-      </div>
-      <div class="form-row-container">
-        <app-select
-          [required]="true"
-          [label]="'CREATE_SERVICE.FORM_FIELDS.AREA'"
-          [options]="areaOptions"
-        ></app-select>
-        <app-select
-          [required]="true"
-          [label]="'CREATE_SERVICE.FORM_FIELDS.CLIENT'"
-          [options]="clientOptions"
-        ></app-select>
-      </div>
-      <div class="timepicker-container">
-        <app-time-picker
-          [required]="true"
-          [label]="'CREATE_SERVICE.FORM_FIELDS.DURATION'"
-        ></app-time-picker>
-      </div>
-      <app-checkbox
-        [required]="true"
-        [label]="'CREATE_SERVICE.FORM_FIELDS.ACTIVE'"
-      ></app-checkbox>
-    </div>
-    <div class="form-column-container">
-      <div class="form-row-container">
-        <span>{{'CREATE_SERVICE.FORM_FIELDS.CENTER_LOC' | translate}}</span>
+<div class="form-wrapper" >
+  <form [formGroup]="form">
+    <div class="form-row-container">
+      <div class="form-column-container">
         <div class="form-row-container">
           <app-input
-            [type]="'number'"
-            [label]="'CREATE_SERVICE.FORM_FIELDS.LAT'"
             [required]="true"
+            [type]="'number'"
+            [label]="'CREATE_SERVICE.FORM_FIELDS.ID'"
+            (onKeyUp)="onFieldChange('id', $event)"
           ></app-input>
           <app-input
-            [type]="'number'"
-            [label]="'CREATE_SERVICE.FORM_FIELDS.LNG'"
             [required]="true"
+            [label]="'CREATE_SERVICE.FORM_FIELDS.NAME'"
+            (onKeyUp)="onFieldChange('name', $event)"
           ></app-input>
         </div>
+        <div class="form-row-container">
+          <app-select
+            [required]="true"
+            [label]="'CREATE_SERVICE.FORM_FIELDS.AREA'"
+            [options]="areaOptions"
+            (onSelectChange)="onFieldChange('area', $event)"
+          ></app-select>
+          <app-select
+            [required]="true"
+            [label]="'CREATE_SERVICE.FORM_FIELDS.CLIENT'"
+            [options]="clientOptions"
+            (onSelectChange)="onFieldChange('client', $event)"
+          ></app-select>
+        </div>
+        <div class="form-row-container">
+          <app-time-picker
+            [required]="true"
+            [label]="'CREATE_SERVICE.FORM_FIELDS.DURATION'"
+            [timeValue]="form.controls['duration'].value"
+            (onValueChange)="onFieldChange('duration', $event)"
+          ></app-time-picker>
+          <app-checkbox
+            [required]="true"
+            [label]="'CREATE_SERVICE.FORM_FIELDS.ACTIVE'"
+            (onCheckboxChange)="onFieldChange('active', $event)"
+          ></app-checkbox>
+        </div>
+      </div>
+      <div class="form-column-container">
+        <div class="form-row-container">
+          <span>{{'CREATE_SERVICE.FORM_FIELDS.CENTER_LOC' | translate}}</span>
+          <div class="form-row-container">
+            <app-input
+              [required]="true"
+              [type]="'number'"
+              [label]="'CREATE_SERVICE.FORM_FIELDS.LAT'"
+              [value]="form.controls['lat'].value"
+              (onKeyUp)="onFieldChange('lat', $event)"
+            ></app-input>
+            <app-input
+              [required]="true"
+              [type]="'number'"
+              [label]="'CREATE_SERVICE.FORM_FIELDS.LNG'"
+              [value]="form.controls['lng'].value"
+              (onKeyUp)="onFieldChange('lng', $event)"
+            ></app-input>
+          </div>
+        </div>
+        <app-map
+          [center]="{lat: form.controls['lat'].value, lng: form.controls['lng'].value}"
+        ></app-map>
       </div>
     </div>
-  </div>
+  </form>
   <div class="form-row-container buttons-container">
     <app-button
       [style]="buttonStyles.PRIMARY"
       [label]="'CREATE_SERVICE.LABELS.CREATE'"
+      [disabled]="!form.valid"
       (onClick)="handleSubmitButton()"
     ></app-button>
     <app-button

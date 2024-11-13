@@ -1,4 +1,4 @@
-<button mat-flat-button [ngClass]="style" (click)="handleButtonClick()" >
+<button mat-flat-button [disabled]="disabled" [ngClass]="style" (click)="handleButtonClick()" >
   @if (icon !== '') {
     <mat-icon matPrefix>{{icon}}</mat-icon>
   }

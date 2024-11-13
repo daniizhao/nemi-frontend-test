@@ -15,3 +15,9 @@ Due to the colors chosen for the theme (Nemi's color palette), using the entire 
 ### - Added filter by name
 
 Once there are a lot of services created, it can become a problem if the user wants to search for an specific service to modify or delete. The solution is to add an input to allow the user to search by name.
+
+# New Service changes
+
+### - Duration selector
+
+Created a custom time picker. Added the hour field, as the Input type="time" doesn't really allow to change the format. It is also a good change because a service could be longer than an hour.

@@ -9,6 +9,8 @@ import Service from "../utils/interfaces/service";
 
 export class ServicesService {
 
+  servicesJsonFilePath = '/data/services.json';
+
   constructor(
     private jsonUtilsService: JsonUtilsService
   ) {
@@ -16,13 +18,23 @@ export class ServicesService {
   }
 
   getServices() {
-    return this.jsonUtilsService.readJson('/data/services.json');
+    return this.jsonUtilsService.readJson(this.servicesJsonFilePath);
   }
 
   getSortedByIdServices() {
-    return this.jsonUtilsService.readJson('/data/services.json').pipe(
+    return this.jsonUtilsService.readJson(this.servicesJsonFilePath).pipe(
       map((result: any) => result.sort((a: Service, b: Service) => a.id - b.id))
     )
+  }
+
+  createNewService(body: Service) {
+    this.getServices().subscribe(
+      (services) => {
+        console.log("test", services);
+        // let newServicesList: Service[] = services;
+      }
+    );
+    // return this.jsonUtilsService.writeJson(this.servicesJsonFilePath)
   }
 
 }

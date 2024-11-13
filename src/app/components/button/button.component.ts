@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { booleanAttribute, Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslateModule } from '@ngx-translate/core';
@@ -18,6 +18,7 @@ export class ButtonComponent {
   @Input() label: string = '';
   @Input() style: BUTTON_STYLES = BUTTON_STYLES.PRIMARY;
   @Input() icon: string = '';
+  @Input({transform: booleanAttribute}) disabled: boolean = false;
   @Output() onClick: EventEmitter<any> = new EventEmitter();
 
   constructor() {}

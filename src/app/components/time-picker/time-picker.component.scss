@@ -1,9 +1,10 @@
 .time-picker-wrapper {
   position: relative;
+  width: 100%;
 }
 
 .time-picker-container {
-  width: fit-content;
+  width: 100%
 }
 
 .time-picker-dropdown {
@@ -15,7 +16,7 @@
   flex-direction: row;
   justify-content: space-around;
   height: 240px;
-  width: 90%;
+  width: calc(100% - 16px);
   overflow: hidden;
   border-radius: 8px;
   .time-slider {

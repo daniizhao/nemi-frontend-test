@@ -2,6 +2,7 @@
   <mat-label>{{label | translate}}</mat-label>
   <mat-select
     [required]="required"
+    (selectionChange)="handleSelectionChange($event)"
   >
     @for (item of options; track $index) {
       <mat-option [value]="item">{{item}}</mat-option>
