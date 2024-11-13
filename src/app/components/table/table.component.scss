@@ -1,0 +1,59 @@
+.table-wrapper {
+
+  .mat-mdc-table {
+    border-collapse: separate;
+    border-spacing: 0px 8px;
+  }
+
+  tr {
+    margin-bottom: 4px;
+  }
+
+  .mat-mdc-table {
+    background-color: transparent;
+  }
+
+  .mat-mdc-header-row {
+    background-color: var(--secondary-color);
+    color: white;
+    font-weight: bold;
+  }
+
+  .mat-mdc-row:nth-child(even) {
+    background-color: color-mix(in srgb, var(--secondary-color), transparent 95%);
+  }
+
+  td:first-child,
+  th:first-child {
+    border-radius: 10px 0 0 10px;
+  }
+
+  td:last-child,
+  th:last-child {
+    border-radius: 0 10px 10px 0;
+  }
+
+  .mat-mdc-paginator {
+    background-color: transparent;
+  }
+
+  .status {
+    padding: 8px;
+    border-radius: 8px;
+    color: white;
+  }
+
+  .active {
+    background-color: green;
+  }
+
+  .inactive {
+    background-color: red;
+  }
+
+  .no-data {
+    text-align: center;
+    font-size: larger;
+    height: 100px;
+  }
+}

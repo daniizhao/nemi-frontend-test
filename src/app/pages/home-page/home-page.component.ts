@@ -4,11 +4,12 @@ import { HeaderComponent } from "../../components/header/header.component";
 import { Router } from '@angular/router';
 import { ServicesService } from '../../services/services.service';
 import Service from '../../utils/interfaces/service';
+import { TableComponent } from "../../components/table/table.component";
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [TranslateModule, HeaderComponent],
+  imports: [TranslateModule, HeaderComponent, TableComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
@@ -22,9 +23,11 @@ export class HomePageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.servicesService.getServices().subscribe((data: any) => {
-      this.services = data;
-    })
+    this.servicesService.getSortedByIdServices().subscribe(
+      (result) => {
+        this.services = result;
+      }
+    );
   }
 
   onNavigate(path: string) {

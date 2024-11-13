@@ -4,26 +4,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Node Version: 22.11.0
 
-## Development server
+# Home Screen changes
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+There are some details on the homepage that I decided to change/add to improve the UX/UI.
 
-## Code scaffolding
+### - Changed background color status to column attribute
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Due to the colors chosen for the theme (Nemi's color palette), using the entire row background to indicate status could be visually overwhelming for users. A more appealing and intuitive approach would be to add a dedicated column with text labels ("active"/"inactive") and add a subtle background color.
 
-## Build
+### - Added filter by name
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Once there are a lot of services created, it can become a problem if the user wants to search for an specific service to modify or delete. The solution is to add an input to allow the user to search by name.
