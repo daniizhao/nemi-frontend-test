@@ -24,7 +24,7 @@ export class TimePickerComponent implements OnInit {
   minuteOptions: string[] = [];
   secondsOptions: string[] = [];
 
-  splitTime: string[] = [];
+  splitTime: string[] = ['00', '00', '00'];
 
   showDropdown: boolean = false;
 
@@ -40,7 +40,9 @@ export class TimePickerComponent implements OnInit {
     this.hourOptions = Array.from({length: 24}, (_, i) => this.formatNumberToString(i));
     this.minuteOptions = Array.from({length: 60}, (_, i) => this.formatNumberToString(i));
     this.secondsOptions = Array.from({length: 60}, (_, i) => this.formatNumberToString(i));
-    this.splitTime = this.timeValue.split(':');
+    if (this.timeValue !== '') {
+      this.splitTime = this.timeValue.split(':');
+    }
   }
 
   private scrollSelectedOptionsIntoView() {

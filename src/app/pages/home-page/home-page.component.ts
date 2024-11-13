@@ -9,7 +9,11 @@ import { TableComponent } from "../../components/table/table.component";
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [TranslateModule, HeaderComponent, TableComponent],
+  imports: [
+    TranslateModule,
+    HeaderComponent,
+    TableComponent
+  ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
@@ -24,8 +28,8 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.servicesService.getSortedByIdServices().subscribe(
-      (result) => {
-        this.services = result;
+      (data) => {
+        this.services = data;
       }
     );
   }

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { JsonUtilsService } from "./jsonUtils.service";
 import { map } from "rxjs";
 import Service from "../utils/interfaces/service";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -9,32 +9,28 @@ import Service from "../utils/interfaces/service";
 
 export class ServicesService {
 
-  servicesJsonFilePath = '/data/services.json';
+  BASE_API_URL: string = 'http://localhost:3000/api/services';
 
   constructor(
-    private jsonUtilsService: JsonUtilsService
+    private http: HttpClient
   ) {
 
   }
 
   getServices() {
-    return this.jsonUtilsService.readJson(this.servicesJsonFilePath);
+    return this.http.get(`${this.BASE_API_URL}`).pipe(
+      map((result: any) => result.data)
+    );
   }
 
   getSortedByIdServices() {
-    return this.jsonUtilsService.readJson(this.servicesJsonFilePath).pipe(
-      map((result: any) => result.sort((a: Service, b: Service) => a.id - b.id))
+    return this.http.get(`${this.BASE_API_URL}`).pipe(
+      map((result: any) => result.data.sort((a: Service, b: Service) => a.id - b.id))
     )
   }
 
   createNewService(body: Service) {
-    this.getServices().subscribe(
-      (services) => {
-        console.log("test", services);
-        // let newServicesList: Service[] = services;
-      }
-    );
-    // return this.jsonUtilsService.writeJson(this.servicesJsonFilePath)
+    return this.http.post(`${this.BASE_API_URL}/create`, body);
   }
 
 }

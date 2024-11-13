@@ -32,7 +32,8 @@
       "ACTIVE": "Active"
     },
     "MESSAGES": {
-      "REQUIRED": "Field is required."
+      "REQUIRED": "Field is required.",
+      "SUCCESS": "Service created successfully!"
     },
     "LABELS": {
       "CREATE": "Create New Service"
@@ -41,6 +42,10 @@
   "LABELS": {
     "SEARCH": "Search",
     "NEW": "New",
-    "CANCEL": "Cancel"
+    "CANCEL": "Cancel",
+    "OK": "Ok"
+  },
+  "ERROR": {
+    "INTERNAL": "Something went wrong, try again later."
   }
 }
