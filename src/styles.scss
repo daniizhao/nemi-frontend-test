@@ -17,6 +17,18 @@
   @include mat.all-component-themes(m3-theme.$light-theme);
   --primary-color: #0dedab;
   --secondary-color: #280a54;
+
+  //------------------------- CUSTOM COMPONENTS VARIABLES
+  // TABLE
+  --mat-table-background-color: transparent;
+  --mat-table-header-headline-color: white;
+  --mat-table-header-headline-weight: 900;
+  --mat-table-row-item-outline-color: var(var(--secondary-color));--mat-paginator-container-background-color: transparent;
+
+  // TEXT FIELD
+  --mdc-filled-text-field-container-color: color-mix(in srgb, var(--primary-color), transparent 75%);
+  --mdc-filled-text-field-focus-active-indicator-color: var(--primary-color);
+
 }
 
 // Comment out the line below if you want to use the pre-defined typography utility classes.

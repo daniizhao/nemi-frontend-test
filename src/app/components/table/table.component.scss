@@ -5,18 +5,8 @@
     border-spacing: 0px 8px;
   }
 
-  tr {
-    margin-bottom: 4px;
-  }
-
-  .mat-mdc-table {
-    background-color: transparent;
-  }
-
   .mat-mdc-header-row {
     background-color: var(--secondary-color);
-    color: white;
-    font-weight: bold;
   }
 
   .mat-mdc-row:nth-child(even) {
@@ -31,10 +21,6 @@
   td:last-child,
   th:last-child {
     border-radius: 0 10px 10px 0;
-  }
-
-  .mat-mdc-paginator {
-    background-color: transparent;
   }
 
   .status {
