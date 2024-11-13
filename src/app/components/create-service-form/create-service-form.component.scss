@@ -1,0 +1,25 @@
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  .form-row-container {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    span {
+      margin-bottom: 20px;
+      align-self: flex-end;
+    }
+  }
+  .form-column-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px
+  }
+  .buttons-container {
+    justify-content: center;
+  }
+  .timepicker-container {
+    width: 50%;
+  }
+}

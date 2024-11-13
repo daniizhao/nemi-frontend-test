@@ -3,11 +3,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslateModule } from '@ngx-translate/core';
+import { BUTTON_STYLES } from '../../utils/enum/button-styles';
 
-enum BUTTON_STYLES {
-  PRIMARY = 'primary',
-  SECONDARY = 'secondary'
-}
 @Component({
   selector: 'app-button',
   standalone: true,
