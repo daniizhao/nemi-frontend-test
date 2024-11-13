@@ -8,7 +8,12 @@ import { BUTTON_STYLES } from '../../utils/enum/button-styles';
 @Component({
   selector: 'app-button',
   standalone: true,
-  imports: [TranslateModule, MatButtonModule, CommonModule, MatIconModule],
+  imports: [
+    TranslateModule,
+    MatButtonModule,
+    CommonModule,
+    MatIconModule
+  ],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss'
 })

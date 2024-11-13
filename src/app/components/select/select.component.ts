@@ -7,7 +7,12 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-select',
   standalone: true,
-  imports: [MatSelectModule, MatFormFieldModule, MatInputModule, TranslateModule],
+  imports: [
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule,
+    TranslateModule
+  ],
   templateUrl: './select.component.html',
   styleUrl: './select.component.scss'
 })

@@ -6,7 +6,10 @@ import { CreateServiceFormComponent } from "../../components/create-service-form
 @Component({
   selector: 'app-create-service',
   standalone: true,
-  imports: [HeaderComponent, CreateServiceFormComponent],
+  imports: [
+    HeaderComponent,
+    CreateServiceFormComponent
+  ],
   templateUrl: './create-service.component.html',
   styleUrl: './create-service.component.scss'
 })

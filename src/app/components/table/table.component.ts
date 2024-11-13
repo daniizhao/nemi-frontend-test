@@ -10,7 +10,14 @@ import { ButtonComponent } from "../button/button.component";
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatPaginatorModule, TranslateModule, InputComponent, ButtonComponent],
+  imports: [
+    CommonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    TranslateModule,
+    InputComponent,
+    ButtonComponent
+  ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'
 })

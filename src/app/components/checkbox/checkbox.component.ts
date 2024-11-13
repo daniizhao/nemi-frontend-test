@@ -6,7 +6,11 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-checkbox',
   standalone: true,
-  imports: [MatCheckboxModule, FormsModule, TranslateModule],
+  imports: [
+    MatCheckboxModule,
+    FormsModule,
+    TranslateModule
+  ],
   templateUrl: './checkbox.component.html',
   styleUrl: './checkbox.component.scss'
 })

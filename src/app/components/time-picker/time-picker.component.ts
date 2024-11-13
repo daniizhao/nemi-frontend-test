@@ -8,7 +8,13 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-time-picker',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, TranslateModule, FormsModule, CommonModule],
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    TranslateModule,
+    FormsModule,
+    CommonModule
+  ],
   templateUrl: './time-picker.component.html',
   styleUrl: './time-picker.component.scss'
 })

@@ -8,7 +8,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-input',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatIconModule, TranslateModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    TranslateModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss'
 })
