@@ -1,10 +1,10 @@
 .header-wrapper {
   padding: 16px 64px;
   background-color: var(--secondary-color);
-  color: white;
   .header-title {
     font-size: xx-large;
     font-weight: bold;
+    color: var(--primary-color);
   }
   .cursor-pointer {
     cursor: pointer;

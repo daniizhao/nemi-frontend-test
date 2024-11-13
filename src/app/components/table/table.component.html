@@ -2,10 +2,17 @@
   <div class="table-menu-container">
     <div>
       <app-input
-        [label]="'SERVICES.SEARCH'"
+        [label]="'LABELS.SEARCH'"
         [icon]="'search'"
         (onKeyUp)="applyFilters($event)"
       ></app-input>
+    </div>
+    <div *ngIf="showCreateButton">
+      <app-button
+        [label]="createButtonText"
+        [icon]="createButtonIcon"
+        (onClick)="handleCreateButtonClick()"
+      ></app-button>
     </div>
   </div>
   <table mat-table [dataSource]="dataSource">

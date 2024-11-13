@@ -16,10 +16,13 @@
       },
       "EMPTY": "Seems you don't have any services. Create one!",
       "NO_DATA": "No data matches the filter"
-    },
-    "SEARCH": "Search"
+    }
   },
   "CREATE_SERVICE": {
     "TITLE": "New Service"
+  },
+  "LABELS": {
+    "SEARCH": "Search",
+    "NEW": "New"
   }
 }
