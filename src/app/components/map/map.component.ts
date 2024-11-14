@@ -36,7 +36,6 @@ export class MapComponent implements AfterViewInit {
 
   @Output() onMarkersChange: EventEmitter<any> = new EventEmitter();
 
-
   buttonStyles = BUTTON_STYLES;
 
   emptyMarkerInfo = {

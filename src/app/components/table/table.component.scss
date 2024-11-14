@@ -15,14 +15,9 @@
     background-color: var(--secondary-color);
   }
 
-  .mat-mdc-row:nth-child(odd),
+  .mat-mdc-row,
   .mat-cell {
     background-color: white;
-    cursor: pointer;
-  }
-
-  .mat-mdc-row:not(.detail-row):nth-child(even) {
-    background-color: color-mix(in srgb, var(--secondary-color), transparent 95%);
   }
 
   td:first-child,
@@ -43,10 +38,8 @@
     height: 0;
   }
 
-  .element-data {
-    overflow: hidden;
-    display: flex;
-    height: 250px;
+  .expandable-row {
+    cursor: pointer;
   }
 
   .status {
