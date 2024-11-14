@@ -1,5 +1,9 @@
 .content-wrapper {
   padding: 16px 32px 64px;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
   .title {
     font-size: xx-large;
     font-weight: bold;

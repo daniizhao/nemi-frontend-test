@@ -46,7 +46,7 @@ export class TimePickerComponent implements OnInit {
     this.hourOptions = Array.from({length: 24}, (_, i) => this.formatNumberToString(i));
     this.minuteOptions = Array.from({length: 60}, (_, i) => this.formatNumberToString(i));
     this.secondsOptions = Array.from({length: 60}, (_, i) => this.formatNumberToString(i));
-    if (this.timeValue !== '') {
+    if (this.timeValue && this.timeValue !== '' ) {
       this.splitTime = this.timeValue.split(':');
     }
   }

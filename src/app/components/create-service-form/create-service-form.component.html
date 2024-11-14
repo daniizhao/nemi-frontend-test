@@ -1,6 +1,6 @@
 <div class="form-wrapper" >
-  <form [formGroup]="form">
-    <div class="form-row-container">
+  <form [formGroup]="form" class="form-container">
+    <div class="form-column-container">
       <div class="form-column-container">
         <div class="form-row-container">
           <app-input
@@ -43,10 +43,10 @@
           ></app-checkbox>
         </div>
       </div>
-      <div class="form-column-container">
-        <div class="form-row-container">
+      <div class="form-row-container">
+        <div class="form-column-container narrow-column">
           <span>{{'CREATE_SERVICE.FORM_FIELDS.CENTER_LOC' | translate}}:</span>
-          <div class="form-row-container">
+          <div class="form-column-container">
             <app-input
               [required]="true"
               [type]="'number'"
@@ -68,11 +68,13 @@
             <mat-icon class="material-icons-outlined">info</mat-icon>
             <div>{{ 'CREATE_SERVICE.MAP.MARKERS_INFO' | translate}}</div>
           </div>
-          <app-map
-            [editable]="true"
-            [center]="{lat: form.controls['lat'].value, lng: form.controls['lng'].value}"
-            (onMarkersChange)="onFieldChange('freePoints', $event)"
-          ></app-map>
+          <div class="map-container">
+            <app-map
+              [editable]="true"
+              [center]="{lat: form.controls['lat'].value, lng: form.controls['lng'].value}"
+              (onMarkersChange)="onFieldChange('freePoints', $event)"
+            ></app-map>
+          </div>
         </div>
       </div>
     </div>

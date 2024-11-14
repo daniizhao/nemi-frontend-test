@@ -61,20 +61,5 @@
     "freePoints": [
       { "lat": 41.387178493705655, "lng": 2.1462822380370916, "name": "test" }
     ]
-  },
-  {
-    "id": 0,
-    "name": "test",
-    "area": "Tarragona",
-    "client": "FlixBus",
-    "duration": "08:00:00",
-    "active": false,
-    "lat": 42.390205,
-    "lng": 2.154007,
-    "freePoints": [
-      { "lat": 41.38628113802589, "lng": 2.1134795518491645, "name": "uni" },
-      { "lat": 41.40933086846508, "lng": 2.15030091720561, "name": "casa" },
-      { "lat": 41.381386847313514, "lng": 2.1564807267759223, "name": "asd" }
-    ]
   }
 ]
