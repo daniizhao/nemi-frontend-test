@@ -69,6 +69,7 @@
             <div>{{ 'CREATE_SERVICE.MAP.MARKERS_INFO' | translate}}</div>
           </div>
           <app-map
+            [editable]="true"
             [center]="{lat: form.controls['lat'].value, lng: form.controls['lng'].value}"
             (onMarkersChange)="onFieldChange('freePoints', $event)"
           ></app-map>

@@ -58,7 +58,9 @@ export class MapComponent implements AfterViewInit {
 
   onMapInitialized(map: google.maps.Map) {
     this.googleMap = map;
-    this.infoWindow = new google.maps.InfoWindow();
+    this.infoWindow = new google.maps.InfoWindow({
+      pixelOffset: new google.maps.Size(0, -40)
+    });
   }
 
   onMapClick(event: google.maps.MapMouseEvent) {

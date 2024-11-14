@@ -23,10 +23,14 @@ Due to the colors chosen for the theme (Nemi's color palette), using the entire 
 
 ### - Added filter by name
 
-Once there are a lot of services created, it can become a problem if the user wants to search for an specific service to modify or delete. The solution is to add an input to allow the user to search by name.
+As the number of services grows, finding a specific service to see its information, modify or delete could become challenging for the user. Adding a search input that allows users to filter services by name, id or any property is the best solution to this problem.
+
+### - Added Expandable rows
+
+To show the free points create and center of location of the service in a map.
 
 # New Service changes
 
 ### - Duration selector
 
-Created a custom time picker. Added the hour field, as the Input type="time" doesn't really allow to change the format. It is also a good change because a service could be longer than an hour.
+I created a custom time picker and added the hour field, as the default `<input type="time" />` doesn't allow for format customization (or I didn't find how to). This change also supports services that may last longer than an hour, removing a restriction for the services.

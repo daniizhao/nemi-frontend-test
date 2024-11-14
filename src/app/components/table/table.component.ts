@@ -6,6 +6,9 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { CommonModule } from '@angular/common';
 import { InputComponent } from "../input/input.component";
 import { ButtonComponent } from "../button/button.component";
+import { MatIconModule } from '@angular/material/icon';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { MapComponent } from "../map/map.component";
 
 @Component({
   selector: 'app-table',
@@ -16,10 +19,19 @@ import { ButtonComponent } from "../button/button.component";
     MatPaginatorModule,
     TranslateModule,
     InputComponent,
-    ButtonComponent
-  ],
+    ButtonComponent,
+    MatIconModule,
+    MapComponent
+],
   templateUrl: './table.component.html',
-  styleUrl: './table.component.scss'
+  styleUrl: './table.component.scss',
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed,void', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ]
 })
 export class TableComponent implements AfterViewInit {
 
@@ -41,6 +53,7 @@ export class TableComponent implements AfterViewInit {
   @Output() onCreateButtonClick: EventEmitter<any> = new EventEmitter();
 
   dataSource = new MatTableDataSource<Service>([]);
+  expandedElement: Service | null;
 
   constructor() {}
 
@@ -61,6 +74,10 @@ export class TableComponent implements AfterViewInit {
   handleCreateButtonClick() {
     console.log("tasdf")
     this.onCreateButtonClick.emit();
+  }
+
+  onExpandRow(element: Service) {
+    this.expandedElement = this.expandedElement === element ? null : element;
   }
 
 }

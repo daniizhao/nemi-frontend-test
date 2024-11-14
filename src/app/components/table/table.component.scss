@@ -18,9 +18,10 @@
   .mat-mdc-row:nth-child(odd),
   .mat-cell {
     background-color: white;
+    cursor: pointer;
   }
 
-  .mat-mdc-row:nth-child(even) {
+  .mat-mdc-row:not(.detail-row):nth-child(even) {
     background-color: color-mix(in srgb, var(--secondary-color), transparent 95%);
   }
 
@@ -36,6 +37,16 @@
 
   .mat-mdc-paginator {
     border-radius: 10px;
+  }
+
+  .detail-row {
+    height: 0;
+  }
+
+  .element-data {
+    overflow: hidden;
+    display: flex;
+    height: 250px;
   }
 
   .status {
