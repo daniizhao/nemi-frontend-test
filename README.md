@@ -2,7 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
 
-Node Version: 22.11.0
+Node Version: 22.113.0
+Express: 4.21.1
+
+This project has a small express server to manage reading and writing JSON files.
+
+# Instructions to run project
+
+To run Angular project, use `npm run start`.
+Open another terminal on root project and execute `node server.js` to run Express.
 
 # Home Screen changes
 

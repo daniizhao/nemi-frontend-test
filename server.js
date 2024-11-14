@@ -27,7 +27,6 @@ app.get('/api/services', (req, res) => {
 app.post('/api/services/create', (req, res) => {
   var file = fs.readFileSync('./public/data/services.json');
   var parsedFile = JSON.parse(file);
-  console.log("test", req.body);
   if (parsedFile.find(obj => obj.id === req.body.id)) {
     // ID already exists
     res.status(409).json({
