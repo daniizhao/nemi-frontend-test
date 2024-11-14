@@ -33,7 +33,12 @@ export class InputComponent {
   constructor() {}
 
   handleKeyUp(event: Event) {
-    this.onKeyUp.emit((event.target as HTMLInputElement).value);
+    let value: string | number | null = (event.target as HTMLInputElement).value;
+    if (this.type === 'number') {
+      if (value === '') value = null;
+      else value = Number(value);
+    }
+    this.onKeyUp.emit(value);
   }
 
 }

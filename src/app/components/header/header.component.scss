@@ -5,16 +5,12 @@
   flex-direction: row;
   align-items: center;
   gap: 16px;
-  .header-back-icon {
-    color: var(--primary-color);
-    cursor: pointer;
-  }
   .header-title {
     font-size: xx-large;
     font-weight: bold;
     color: var(--primary-color);
   }
-  .cursor-pointer {
+  .clickable {
     cursor: pointer;
   }
 }

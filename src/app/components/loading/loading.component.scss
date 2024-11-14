@@ -1,0 +1,16 @@
+.loading-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: color-mix(in srgb, black 100%, transparent 58%);
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  display: none;
+}
+
+.show {
+  display: flex;
+}

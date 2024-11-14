@@ -83,8 +83,8 @@ export class MapComponent implements AfterViewInit {
     let marker = this.markers.find(m => m.lat === event.latLng?.lat() && m.lng === event.latLng.lng());
     if (marker) {
       this.openInfoWindow(
-        '',
         marker?.name,
+        '',
         event.latLng
       );
     }

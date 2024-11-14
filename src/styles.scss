@@ -50,11 +50,19 @@
   // CHECKBOX
   --mdc-checkbox-selected-icon-color: var(--primary-color);
   --mdc-checkbox-unselected-icon-color: var(--primary-color);
-  --mdc-checkbox-selected-focus-icon-color: var(--secondary-color-lighter);
+  --mdc-checkbox-selected-focus-icon-color: var(--primary-color);
   --mdc-checkbox-unselected-focus-icon-color: var(--primary-color);
   --mdc-checkbox-unselected-hover-icon-color: var(--primary-color);
   --mdc-checkbox-selected-pressed-icon-color: var(--primary-color);
-  --mdc-checkbox-unselected-pressed-state-layer-opacity: 0.5;
+  --mdc-checkbox-unselected-pressed-state-layer-opacity: 0;
+  --mdc-checkbox-selected-focus-state-layer-color: transparent;
+  --mdc-checkbox-selected-pressed-state-layer-color: transparent;
+  --mdc-checkbox-unselected-focus-state-layer-color: transparent;
+  --mdc-checkbox-unselected-hover-state-layer-color: transparent;
+  --mat-full-pseudo-checkbox-unselected-icon-color: transparent;
+
+  // SPINNER
+  --mdc-circular-progress-active-indicator-color: var(--primary-color);
 
 }
 

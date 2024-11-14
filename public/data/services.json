@@ -1,1 +1,80 @@
-[{"id":6,"name":"BCN - TERRASSA","area":"Barcelona","client":"TMB","duration":"00:15:30","active":true,"lat":41.390205,"lng":2.154007},{"id":1,"name":"BCN - TERRASSA","area":"Barcelona","client":"TMB","duration":"00:15:30","active":true,"lat":41.390205,"lng":2.154007},{"id":2,"name":"BCN - St Cugat","area":"Barcelona","client":"Adif","duration":"00:40:30","active":false,"lat":41.390205,"lng":2.154007},{"id":4,"name":"Barcelona-Badalona","area":"Barcelona","client":"TMB","duration":"00:03:00","active":1,"lat":41.390205,"lng":2.154007},{"id":5,"name":"Terrassa - Sabadell","area":"Barcelona","client":"Adif","duration":"00:22:13","active":false,"lat":41.390205,"lng":2.154007},{"id":7,"name":"Opcional","area":"Tarragona","client":"Adif","duration":"01:02:03","active":false,"lat":41.390205,"lng":2.154007,"freePoints":[{"lat":41.387178493705655,"lng":2.1462822380370916,"name":"test"}]}]
+[
+  {
+    "id": 6,
+    "name": "BCN - TERRASSA",
+    "area": "Barcelona",
+    "client": "TMB",
+    "duration": "00:15:30",
+    "active": true,
+    "lat": 41.390205,
+    "lng": 2.154007
+  },
+  {
+    "id": 1,
+    "name": "BCN - TERRASSA",
+    "area": "Barcelona",
+    "client": "TMB",
+    "duration": "00:15:30",
+    "active": true,
+    "lat": 41.390205,
+    "lng": 2.154007
+  },
+  {
+    "id": 2,
+    "name": "BCN - St Cugat",
+    "area": "Barcelona",
+    "client": "Adif",
+    "duration": "00:40:30",
+    "active": false,
+    "lat": 41.390205,
+    "lng": 2.154007
+  },
+  {
+    "id": 4,
+    "name": "Barcelona-Badalona",
+    "area": "Barcelona",
+    "client": "TMB",
+    "duration": "00:03:00",
+    "active": 1,
+    "lat": 41.390205,
+    "lng": 2.154007
+  },
+  {
+    "id": 5,
+    "name": "Terrassa - Sabadell",
+    "area": "Barcelona",
+    "client": "Adif",
+    "duration": "00:22:13",
+    "active": false,
+    "lat": 41.390205,
+    "lng": 2.154007
+  },
+  {
+    "id": 7,
+    "name": "Opcional",
+    "area": "Tarragona",
+    "client": "Adif",
+    "duration": "01:02:03",
+    "active": false,
+    "lat": 41.390205,
+    "lng": 2.154007,
+    "freePoints": [
+      { "lat": 41.387178493705655, "lng": 2.1462822380370916, "name": "test" }
+    ]
+  },
+  {
+    "id": 0,
+    "name": "test",
+    "area": "Tarragona",
+    "client": "FlixBus",
+    "duration": "08:00:00",
+    "active": false,
+    "lat": 42.390205,
+    "lng": 2.154007,
+    "freePoints": [
+      { "lat": 41.38628113802589, "lng": 2.1134795518491645, "name": "uni" },
+      { "lat": 41.40933086846508, "lng": 2.15030091720561, "name": "casa" },
+      { "lat": 41.381386847313514, "lng": 2.1564807267759223, "name": "asd" }
+    ]
+  }
+]

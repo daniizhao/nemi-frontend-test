@@ -61,9 +61,8 @@ export class TableComponent implements AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  applyFilters(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    console.log("filter", filterValue)
+  applyFilters(filter: string) {
+    const filterValue = filter;
     this.dataSource.filter = filterValue.trim();
 
     if (this.dataSource.paginator) {
@@ -72,7 +71,6 @@ export class TableComponent implements AfterViewInit {
   }
 
   handleCreateButtonClick() {
-    console.log("tasdf")
     this.onCreateButtonClick.emit();
   }
 

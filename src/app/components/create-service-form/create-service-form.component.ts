@@ -15,6 +15,7 @@ import { ServicesService } from '../../services/services.service';
 import { HTTP_CODES } from '../../utils/enum/http-codes';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { LoadingService } from '../../services/loading.service';
 
 @Component({
   selector: 'app-create-service-form',
@@ -37,6 +38,8 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class CreateServiceFormComponent {
 
+  private loadingService = inject(LoadingService);
+
   @Input() initialData: Service | null = null;
 
   @Output() onSubmitClick: EventEmitter<any> = new EventEmitter();
@@ -58,11 +61,11 @@ export class CreateServiceFormComponent {
     private translateService: TranslateService
   ) {
     this.form = this.formBuilder.group({
-      id: new FormControl('', Validators.required),
-      name: new FormControl('', Validators.required),
-      area: new FormControl('', Validators.required),
-      client: new FormControl('', Validators.required),
-      duration: new FormControl('', Validators.required),
+      id: new FormControl(null, Validators.required),
+      name: new FormControl(null, Validators.required),
+      area: new FormControl(null, Validators.required),
+      client: new FormControl(null, Validators.required),
+      duration: new FormControl(null, Validators.required),
       active: new FormControl(false, Validators.required),
       lat: new FormControl(BCN_COORDS.lat, Validators.required),
       lng: new FormControl(BCN_COORDS.lng, Validators.required),
@@ -71,12 +74,19 @@ export class CreateServiceFormComponent {
   }
 
   onFieldChange(fieldId: string, value: string | number | boolean) {
-    this.form.patchValue({
-      [fieldId]: Number.isNaN(Number(value)) ? value : Number(value)
-    });
+    if (value === null || value === '') {
+      this.form.patchValue({
+        [fieldId]: null
+      });
+    } else {
+      this.form.patchValue({
+        [fieldId]: Number.isSafeInteger(Number(value)) ? Number(value) : value
+      });
+    }
   }
 
   handleSubmitButton() {
+    this.loadingService.showLoading();
     this.servicesService.createNewService(this.form.value).subscribe({
       next: (data) => {
         this._snackBar.open(
@@ -87,6 +97,7 @@ export class CreateServiceFormComponent {
           }
         );
         setTimeout(() => {
+          this.loadingService.hideLoading();
           this.router.navigate(['']);
         }, 1500);
       },
@@ -108,7 +119,10 @@ export class CreateServiceFormComponent {
             }
           );
         }
-      }
+        setTimeout(() => {
+          this.loadingService.hideLoading();
+        }, 1000);
+      },
     })
   }
 
