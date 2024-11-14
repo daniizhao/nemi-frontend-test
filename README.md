@@ -9,8 +9,9 @@ This project has a small express server to manage reading and writing JSON files
 
 # Instructions to run project
 
-To run Angular project, use `npm run start`.
-Open another terminal on root project and execute `node server.js` to run Express.
+On root project execute `node server.js` to run Express.
+
+Open another terminal to run Angular project executing `npm run start`.
 
 # Home Screen changes
 

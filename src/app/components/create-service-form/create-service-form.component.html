@@ -63,9 +63,16 @@
             ></app-input>
           </div>
         </div>
-        <app-map
-          [center]="{lat: form.controls['lat'].value, lng: form.controls['lng'].value}"
-        ></app-map>
+        <div class="form-column-container">
+          <div class="info-text">
+            <mat-icon class="material-icons-outlined">info</mat-icon>
+            <div>{{ 'CREATE_SERVICE.MAP.MARKERS_INFO' | translate}}</div>
+          </div>
+          <app-map
+            [center]="{lat: form.controls['lat'].value, lng: form.controls['lng'].value}"
+            (onMarkersChange)="onFieldChange('freePoints', $event)"
+          ></app-map>
+        </div>
       </div>
     </div>
   </form>

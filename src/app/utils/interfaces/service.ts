@@ -1,3 +1,5 @@
+import { MapMarkerInfo } from "./mapMarker";
+
 export default interface Service {
   id: number,
   name: string,
@@ -6,5 +8,6 @@ export default interface Service {
   duration: string,
   active: boolean,
   lat: number,
-  lng: number
+  lng: number,
+  freePoints?: MapMarkerInfo[]
 }

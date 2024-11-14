@@ -13,6 +13,9 @@
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
+
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
+
 :root {
   @include mat.all-component-themes(m3-theme.$light-theme);
 

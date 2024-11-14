@@ -41,15 +41,16 @@
   .status {
     padding: 8px;
     border-radius: 8px;
-    color: white;
+    width: 25%;
+    text-align: center;
   }
 
   .active {
-    background-color: green;
+    background-color: lightgreen;
   }
 
   .inactive {
-    background-color: red;
+    background-color: lightcoral;
   }
 
   .no-data {

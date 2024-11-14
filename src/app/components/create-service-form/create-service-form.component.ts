@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 import { ServicesService } from '../../services/services.service';
 import { HTTP_CODES } from '../../utils/enum/http-codes';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-create-service-form',
@@ -28,7 +29,8 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     MapComponent,
     FormsModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatIconModule
   ],
   templateUrl: './create-service-form.component.html',
   styleUrl: './create-service-form.component.scss'
@@ -63,7 +65,8 @@ export class CreateServiceFormComponent {
       duration: new FormControl('', Validators.required),
       active: new FormControl(false, Validators.required),
       lat: new FormControl(BCN_COORDS.lat, Validators.required),
-      lng: new FormControl(BCN_COORDS.lng, Validators.required)
+      lng: new FormControl(BCN_COORDS.lng, Validators.required),
+      freePoints: new FormControl([])
     });
   }
 

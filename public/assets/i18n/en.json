@@ -37,6 +37,13 @@
     },
     "LABELS": {
       "CREATE": "Create New Service"
+    },
+    "MAP": {
+      "MARKERS_INFO": "Click on the map to add free points",
+      "ADD_MARKER": {
+        "TITLE": "Add free point",
+        "DESCRIPTION": "Name"
+      }
     }
   },
   "LABELS": {
