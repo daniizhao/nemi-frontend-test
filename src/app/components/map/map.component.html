@@ -1,7 +1,5 @@
 <google-map
-  #mapInstance="googleMap"
-  [center]="center"
-  [zoom]="zoom"
+  [options]="mapOptions"
   (mapInitialized)="onMapInitialized($event)"
   (mapClick)="onMapClick($event)"
   width="100%"

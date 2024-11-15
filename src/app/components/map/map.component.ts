@@ -30,7 +30,6 @@ export class MapComponent implements AfterViewInit {
   infoWindow: google.maps.InfoWindow;
 
   @Input() center: google.maps.LatLngLiteral = BCN_COORDS
-  zoom: number = 13;
   @Input() set markers(value: MapMarkerInfo[]) {
     this._markers = value;
   }
@@ -39,6 +38,11 @@ export class MapComponent implements AfterViewInit {
   @Output() onMarkerAdded: EventEmitter<any> = new EventEmitter();
 
   buttonStyles = BUTTON_STYLES;
+  mapOptions: google.maps.MapOptions = {
+    center: BCN_COORDS,
+    zoom: 13,
+    streetViewControl: false,
+  }
 
   emptyMarkerInfo = {
     lat: 0,
