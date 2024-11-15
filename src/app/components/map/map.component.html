@@ -1,5 +1,6 @@
 <google-map
   [options]="mapOptions"
+  [center]="center"
   (mapInitialized)="onMapInitialized($event)"
   (mapClick)="onMapClick($event)"
   width="100%"
@@ -21,7 +22,7 @@
     <app-input
       [label]="'CREATE_SERVICE.MAP.ADD_MARKER.DESCRIPTION'"
       [value]="newMarker.name"
-      (onKeyUp)="onInputChange($event)"
+      (onChangeValue)="onInputChange($event)"
     ></app-input>
     <div class="buttons-container">
       <app-button

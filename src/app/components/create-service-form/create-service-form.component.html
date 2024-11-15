@@ -8,13 +8,13 @@
           [label]="'CREATE_SERVICE.FORM_FIELDS.ID'"
           [value]="form.controls['id'].value"
           [disabled]="isEdit ? true : false"
-          (onKeyUp)="onFieldChange('id', $event)"
+          (onChangeValue)="onFieldChange('id', $event)"
         ></app-input>
         <app-input
           [required]="true"
           [label]="'CREATE_SERVICE.FORM_FIELDS.NAME'"
           [value]="form.controls['name'].value"
-          (onKeyUp)="onFieldChange('name', $event)"
+          (onChangeValue)="onFieldChange('name', $event)"
         ></app-input>
         <app-select
           [required]="true"
@@ -52,14 +52,14 @@
               [type]="'number'"
               [label]="'CREATE_SERVICE.FORM_FIELDS.LAT'"
               [value]="form.controls['lat'].value"
-              (onKeyUp)="onFieldChange('lat', $event)"
+              (onChangeValue)="onFieldChange('lat', $event)"
             ></app-input>
             <app-input
               [required]="true"
               [type]="'number'"
               [label]="'CREATE_SERVICE.FORM_FIELDS.LNG'"
               [value]="form.controls['lng'].value"
-              (onKeyUp)="onFieldChange('lng', $event)"
+              (onChangeValue)="onFieldChange('lng', $event)"
             ></app-input>
           </div>
         </div>

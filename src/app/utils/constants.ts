@@ -60,3 +60,38 @@ export const BCN_COORDS = {
   lat: 41.390205,
   lng: 2.154007
 }
+
+export const SERVICES_TABLE_COLUMNS = [
+  {
+    id: 'status',
+    label: 'SERVICES.TABLE_HEADERS.STATUS'
+  },
+  {
+    id: 'id',
+    label: 'SERVICES.TABLE_HEADERS.ID'
+  },
+  {
+    id: 'name',
+    label: 'SERVICES.TABLE_HEADERS.NAME'
+  },
+  {
+    id: 'area',
+    label: 'SERVICES.TABLE_HEADERS.AREA'
+  },
+  {
+    id: 'client',
+    label: 'SERVICES.TABLE_HEADERS.CLIENT'
+  },
+  {
+    id: 'duration',
+    label: 'SERVICES.TABLE_HEADERS.DURATION'
+  },
+  {
+    id: 'actions',
+    label: ''
+  },
+  {
+    id: 'expand',
+    label: ''
+  }
+]

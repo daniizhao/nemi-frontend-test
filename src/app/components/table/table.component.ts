@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { MapComponent } from "../map/map.component";
 import { MatDialogModule } from '@angular/material/dialog';
+import { TableColumnInfo } from '../../utils/interfaces/table';
 
 @Component({
   selector: 'app-table',
@@ -47,7 +48,13 @@ export class TableComponent implements AfterViewInit {
   @Input() set serviceData(value: Service[]) {
     this.dataSource = new MatTableDataSource(value);
   }
-  @Input() displayedColumns: string[] = [];
+  @Input() set columns(value: TableColumnInfo[]) {
+    this._columns = value;
+    this.displayedColumns = value.map(val => val.id);
+  }
+  @Input() expandDetailDef: string;
+  _columns: TableColumnInfo[] = [];
+  displayedColumns: string[] = [];
 
   @Input({transform: booleanAttribute}) showCreateButton: boolean = true;
   @Input() createButtonText: string = 'LABELS.NEW';

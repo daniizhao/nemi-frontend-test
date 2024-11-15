@@ -29,17 +29,17 @@ export class InputComponent {
   @Input() value: string = '';
   @Input({transform: booleanAttribute}) disabled: boolean = false;
 
-  @Output() onKeyUp: EventEmitter<any> = new EventEmitter();
+  @Output() onChangeValue: EventEmitter<any> = new EventEmitter();
 
   constructor() {}
 
-  handleKeyUp(event: Event) {
+  handleChange(event: Event) {
     let value: string | number | null = (event.target as HTMLInputElement).value;
     if (this.type === 'number') {
       if (value === '') value = null;
       else value = Number(value);
     }
-    this.onKeyUp.emit(value);
+    this.onChangeValue.emit(value);
   }
 
 }

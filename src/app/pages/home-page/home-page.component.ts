@@ -9,6 +9,8 @@ import { LoadingService } from '../../services/loading.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../components/dialog/dialog.component';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { TableColumnInfo } from '../../utils/interfaces/table';
+import { SERVICES_TABLE_COLUMNS } from '../../utils/constants';
 
 @Component({
   selector: 'app-home-page',
@@ -29,6 +31,7 @@ export class HomePageComponent implements OnInit {
   private _snackBar = inject(MatSnackBar);
 
   services: Service[] = [];
+  servicesColumns: TableColumnInfo[] = SERVICES_TABLE_COLUMNS;
 
   constructor(
     private router: Router,

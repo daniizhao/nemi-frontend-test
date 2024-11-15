@@ -63,8 +63,11 @@
     height: 100px;
   }
 
-  .actions-column {
-    width: 5%;
+  .mat-column-actions {
+    width: 100px;
+  }
+  .mat-column-expand {
+    width: 50px;
   }
 
   .action-buttons-container {

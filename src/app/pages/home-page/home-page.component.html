@@ -5,7 +5,8 @@
 <div class="home-wrapper">
   <app-table
     [serviceData]="services"
-    [displayedColumns]="['status', 'id', 'name', 'area', 'client', 'duration', 'expand']"
+    [columns]="servicesColumns"
+    [expandDetailDef]="'mapDetail'"
     [createButtonText]="'CREATE_SERVICE.TITLE'"
     [createButtonIcon]="'add'"
     (onCreateButtonClick)="onNavigate('/create')"

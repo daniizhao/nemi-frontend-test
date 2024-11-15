@@ -10,7 +10,8 @@
       [min]="minNumber"
       [value]="value"
       [disabled]="disabled"
-      (keyup)="handleKeyUp($event)"
+      (change)="handleChange($event)"
+      (keyup)="handleChange($event)"
     />
   </mat-form-field>
 </div>
