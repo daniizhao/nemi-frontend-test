@@ -9,5 +9,7 @@
     [createButtonText]="'CREATE_SERVICE.TITLE'"
     [createButtonIcon]="'add'"
     (onCreateButtonClick)="onNavigate('/create')"
+    (onEditButtonClick)="onEditService($event)"
+    (onDeleteButtonClick)="onDeleteService($event)"
   ></app-table>
 </div>

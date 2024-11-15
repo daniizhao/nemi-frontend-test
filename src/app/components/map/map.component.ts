@@ -31,10 +31,12 @@ export class MapComponent implements AfterViewInit {
 
   @Input() center: google.maps.LatLngLiteral = BCN_COORDS
   zoom: number = 13;
-  @Input() markers: MapMarkerInfo[] = [];
+  @Input() set markers(value: MapMarkerInfo[]) {
+    this._markers = value;
+  }
   @Input({transform: booleanAttribute}) editable: boolean = false;
 
-  @Output() onMarkersChange: EventEmitter<any> = new EventEmitter();
+  @Output() onMarkerAdded: EventEmitter<any> = new EventEmitter();
 
   buttonStyles = BUTTON_STYLES;
 
@@ -44,6 +46,7 @@ export class MapComponent implements AfterViewInit {
     name: ''
   };
   newMarker: MapMarkerInfo = this.emptyMarkerInfo;
+  _markers: MapMarkerInfo[] = [];
 
   headerHTML: HTMLElement | string = '';
   contentHTML: HTMLElement | string = '';
@@ -101,10 +104,10 @@ export class MapComponent implements AfterViewInit {
   }
 
   onCreateNewMarker() {
-    this.markers.push(this.newMarker);
+    this._markers.push(this.newMarker);
+    this.onMarkerAdded.emit(this.newMarker);
     this.newMarker = this.emptyMarkerInfo;
     this.infoWindow.close();
-    this.onMarkersChange.emit(this.markers);
   }
 
   onCancelCreateNewMarker() {

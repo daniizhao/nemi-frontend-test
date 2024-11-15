@@ -2,7 +2,7 @@
   <div class="time-picker-container">
     <mat-form-field>
       <mat-label>{{ label | translate }}</mat-label>
-      <input matInput type="time" [readonly]="true" [required]="required" (focus)="toggleShowDropdown(true)" (blur)="toggleShowDropdown(false)" [(ngModel)]="timeValue" [step]="1"/>
+      <input matInput type="time" [readonly]="true" [required]="required" (focus)="toggleShowDropdown(true)" (blur)="toggleShowDropdown(false)" [value]="duration" [step]="1"/>
     </mat-form-field>
     @if (showDropdown) {
       <div class="time-picker-dropdown" (mousedown)="preventBlurOnDropdown($event)">

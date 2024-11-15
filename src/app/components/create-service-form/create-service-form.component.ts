@@ -16,6 +16,8 @@ import { HTTP_CODES } from '../../utils/enum/http-codes';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { LoadingService } from '../../services/loading.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { MapMarkerInfo } from '../../utils/interfaces/mapMarker';
 
 @Component({
   selector: 'app-create-service-form',
@@ -39,8 +41,26 @@ import { LoadingService } from '../../services/loading.service';
 export class CreateServiceFormComponent {
 
   private loadingService = inject(LoadingService);
+  private _snackBar = inject(MatSnackBar);
 
-  @Input() initialData: Service | null = null;
+  @Input() isEdit: boolean = false;
+  _initialData: Service;
+  @Input() set initialData(value: Service | null) {
+    if (value) {
+      this.isEdit = true;
+      this._initialData = value;
+      this.form.controls['id'].setValue(value.id);
+      this.form.controls['name'].setValue(value.name);
+      this.form.controls['area'].setValue(value.area);
+      this.form.controls['client'].setValue(value.client);
+      this.form.controls['duration'].setValue(value.duration);
+      this.form.controls['active'].setValue(value.active);
+      this.form.controls['lat'].setValue(value.lat);
+      this.form.controls['lng'].setValue(value.lng);
+      this.form.controls['freePoints'].setValue(value?.freePoints);
+    }
+  }
+  hasChanges: boolean = false;
 
   @Output() onSubmitClick: EventEmitter<any> = new EventEmitter();
   @Output() onCancelClick: EventEmitter<any> = new EventEmitter();
@@ -51,8 +71,6 @@ export class CreateServiceFormComponent {
   buttonStyles = BUTTON_STYLES;
 
   form: FormGroup = new FormGroup({});
-
-  private _snackBar = inject(MatSnackBar);
 
   constructor(
     private formBuilder: FormBuilder,
@@ -73,57 +91,97 @@ export class CreateServiceFormComponent {
     });
   }
 
-  onFieldChange(fieldId: string, value: string | number | boolean) {
-    if (value === null || value === '') {
-      this.form.patchValue({
-        [fieldId]: null
-      });
+  detectChanges() {
+    const changes = Object.fromEntries(
+      Object.entries(this._initialData)
+      .filter(([key, val]) => String(this.form.controls[key].value) !== String(val)));
+
+    if (Object.entries(changes).length > 0) {
+      this.hasChanges = true
     } else {
-      this.form.patchValue({
-        [fieldId]: Number.isSafeInteger(Number(value)) ? Number(value) : value
-      });
+      this.hasChanges = false;
     }
+  }
+
+  onFieldChange(fieldId: string, value: string | number | boolean) {
+    let finalValue: any = value;
+    if (value === null || value === '') {
+      finalValue = null;
+    } else {
+      if (fieldId === 'freePoints') {
+        finalValue = [...this.form.controls[fieldId].value, value];
+      }
+    }
+    this.form.patchValue({
+      [fieldId]: finalValue
+    });
+    this.detectChanges();
   }
 
   handleSubmitButton() {
     this.loadingService.showLoading();
-    this.servicesService.createNewService(this.form.value).subscribe({
-      next: (data) => {
-        this._snackBar.open(
-          this.translateService.instant('CREATE_SERVICE.MESSAGES.SUCCESS'),
-          this.translateService.instant('LABELS.OK'),
-          {
-            duration: 1500
-          }
-        );
-        setTimeout(() => {
-          this.loadingService.hideLoading();
-          this.router.navigate(['']);
-        }, 1500);
-      },
-      error: (error) => {
-        if (error.status === HTTP_CODES.CONFLICT) {
+    if (this.isEdit) {
+      this.servicesService.editService(this._initialData.id, this.form.value).subscribe({
+        next: () => {
           this._snackBar.open(
-            error.error.message,
+            this.translateService.instant('CREATE_SERVICE.MESSAGES.SUCCESS_EDIT'),
             this.translateService.instant('LABELS.OK'),
             {
               duration: 1500
             }
           );
-        } else {
-          this._snackBar.open(
-            this.translateService.instant('ERROR.INTERNAL'),
-            this.translateService.instant('LABELS.OK'),
-            {
-              duration: 1500
-            }
-          );
+          setTimeout(() => {
+            this.loadingService.hideLoading();
+            this.router.navigate(['']);
+          }, 1500);
+        },
+        error: (error) => {
+          this.errorHandler(error);
         }
-        setTimeout(() => {
-          this.loadingService.hideLoading();
-        }, 1000);
-      },
-    })
+      })
+    } else {
+      this.servicesService.createNewService(this.form.value).subscribe({
+        next: () => {
+          this._snackBar.open(
+            this.translateService.instant('CREATE_SERVICE.MESSAGES.SUCCESS_CREATE'),
+            this.translateService.instant('LABELS.OK'),
+            {
+              duration: 1500
+            }
+          );
+          setTimeout(() => {
+            this.loadingService.hideLoading();
+            this.router.navigate(['']);
+          }, 1500);
+        },
+        error: (error) => {
+          this.errorHandler(error);
+        },
+      })
+    }
+  }
+
+  errorHandler(error: HttpErrorResponse) {
+    if (error.status === HTTP_CODES.CONFLICT) {
+      this._snackBar.open(
+        error.error.message,
+        this.translateService.instant('LABELS.OK'),
+        {
+          duration: 1500
+        }
+      );
+    } else {
+      this._snackBar.open(
+        this.translateService.instant('ERROR.INTERNAL'),
+        this.translateService.instant('LABELS.OK'),
+        {
+          duration: 1500
+        }
+      );
+    }
+    setTimeout(() => {
+      this.loadingService.hideLoading();
+    }, 1000);
   }
 
   handleCancelButton() {

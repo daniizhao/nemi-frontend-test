@@ -3,26 +3,31 @@
     <div class="form-row-container">
       <div class="form-column-container">
         <app-input
-          [required]="true"
+          [required]="isEdit ? false : true"
           [type]="'number'"
           [label]="'CREATE_SERVICE.FORM_FIELDS.ID'"
+          [value]="form.controls['id'].value"
+          [disabled]="isEdit ? true : false"
           (onKeyUp)="onFieldChange('id', $event)"
         ></app-input>
         <app-input
           [required]="true"
           [label]="'CREATE_SERVICE.FORM_FIELDS.NAME'"
+          [value]="form.controls['name'].value"
           (onKeyUp)="onFieldChange('name', $event)"
         ></app-input>
         <app-select
           [required]="true"
           [label]="'CREATE_SERVICE.FORM_FIELDS.AREA'"
           [options]="areaOptions"
+          [value]="form.controls['area'].value"
           (onSelectChange)="onFieldChange('area', $event)"
         ></app-select>
         <app-select
           [required]="true"
           [label]="'CREATE_SERVICE.FORM_FIELDS.CLIENT'"
           [options]="clientOptions"
+          [value]="form.controls['client'].value"
           (onSelectChange)="onFieldChange('client', $event)"
         ></app-select>
         <div class="form-row-container">
@@ -35,6 +40,7 @@
           <app-checkbox
             [required]="true"
             [label]="'CREATE_SERVICE.FORM_FIELDS.ACTIVE'"
+            [checked]="form.controls['active'].value"
             (onCheckboxChange)="onFieldChange('active', $event)"
           ></app-checkbox>
         </div>
@@ -68,7 +74,8 @@
             <app-map
               [editable]="true"
               [center]="{lat: form.controls['lat'].value, lng: form.controls['lng'].value}"
-              (onMarkersChange)="onFieldChange('freePoints', $event)"
+              [markers]="form.controls['freePoints'].value"
+              (onMarkerAdded)="onFieldChange('freePoints', $event)"
             ></app-map>
           </div>
         </div>
@@ -78,8 +85,8 @@
   <div class="form-row-container buttons-container">
     <app-button
       [style]="buttonStyles.PRIMARY"
-      [label]="'CREATE_SERVICE.LABELS.CREATE'"
-      [disabled]="!form.valid"
+      [label]="isEdit ? 'CREATE_SERVICE.LABELS.EDIT' : 'CREATE_SERVICE.LABELS.CREATE'"
+      [disabled]="!form.valid || (isEdit && !hasChanges)"
       (onClick)="handleSubmitButton()"
     ></app-button>
     <app-button

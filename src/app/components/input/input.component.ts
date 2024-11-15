@@ -27,6 +27,7 @@ export class InputComponent {
   @Input() icon: string = '';
   @Input() minNumber: number = 0;
   @Input() value: string = '';
+  @Input({transform: booleanAttribute}) disabled: boolean = false;
 
   @Output() onKeyUp: EventEmitter<any> = new EventEmitter();
 

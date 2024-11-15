@@ -2,6 +2,9 @@
   (onTitleClick)="onNavigate('')"
 ></app-header>
 <div class="content-wrapper">
-  <div class="title">{{ 'CREATE_SERVICE.TITLE' | translate }}</div>
-  <app-create-service-form></app-create-service-form>
+  <div class="title">{{ (isEdit ? 'CREATE_SERVICE.EDIT_TITLE' : 'CREATE_SERVICE.TITLE') | translate }}</div>
+  <app-create-service-form
+    [initialData]="serviceData"
+    [isEdit]="isEdit"
+  ></app-create-service-form>
 </div>

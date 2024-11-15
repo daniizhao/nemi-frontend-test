@@ -10,5 +10,9 @@ export const routes: Routes = [
   {
     path: 'create',
     component: CreateServiceComponent
+  },
+  {
+    path: 'edit/:id',
+    component: CreateServiceComponent
   }
 ];

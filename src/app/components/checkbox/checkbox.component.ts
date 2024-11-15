@@ -18,6 +18,7 @@ export class CheckboxComponent {
 
   @Input({transform: booleanAttribute}) required: boolean = false;
   @Input() label: string = '';
+  @Input({transform: booleanAttribute}) checked: boolean = false;
 
   @Output() onCheckboxChange: EventEmitter<any> = new EventEmitter();
 

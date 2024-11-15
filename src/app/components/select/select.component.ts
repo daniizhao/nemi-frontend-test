@@ -20,7 +20,8 @@ export class SelectComponent {
 
   @Input({transform: booleanAttribute}) required: boolean = false;
   @Input() label: string = '';
-  @Input() options: any[] = [];
+  @Input() value: string = '';
+  @Input() options: string[] = [];
 
   @Output() onSelectChange: EventEmitter<any> = new EventEmitter();
 

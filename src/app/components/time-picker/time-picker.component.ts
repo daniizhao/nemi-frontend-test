@@ -22,7 +22,12 @@ export class TimePickerComponent implements OnInit {
 
   @Input({transform: booleanAttribute}) required: boolean = false;
   @Input() label: string = '';
-  @Input() timeValue: string = '';
+  @Input() set timeValue(value: string) {
+    this.duration = value;
+    if (value && value !== '' ) {
+      this.splitTime = value.split(':');
+    }
+  }
 
   @Output() onValueChange: EventEmitter<any> = new EventEmitter();
 
@@ -30,6 +35,7 @@ export class TimePickerComponent implements OnInit {
   minuteOptions: string[] = [];
   secondsOptions: string[] = [];
 
+  duration: string;
   splitTime: string[] = ['00', '00', '00'];
 
   showDropdown: boolean = false;
@@ -46,9 +52,6 @@ export class TimePickerComponent implements OnInit {
     this.hourOptions = Array.from({length: 24}, (_, i) => this.formatNumberToString(i));
     this.minuteOptions = Array.from({length: 60}, (_, i) => this.formatNumberToString(i));
     this.secondsOptions = Array.from({length: 60}, (_, i) => this.formatNumberToString(i));
-    if (this.timeValue && this.timeValue !== '' ) {
-      this.splitTime = this.timeValue.split(':');
-    }
   }
 
   private scrollSelectedOptionsIntoView() {

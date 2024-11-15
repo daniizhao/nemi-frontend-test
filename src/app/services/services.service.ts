@@ -23,6 +23,12 @@ export class ServicesService {
     );
   }
 
+  getServiceById(serviceId: number) {
+    return this.http.get(`${this.BASE_API_URL}/${serviceId}`).pipe(
+      map((result: any) => result.data)
+    );
+  }
+
   getSortedByIdServices() {
     return this.http.get(`${this.BASE_API_URL}`).pipe(
       map((result: any) => result.data.sort((a: Service, b: Service) => a.id - b.id))
@@ -31,6 +37,14 @@ export class ServicesService {
 
   createNewService(body: Service) {
     return this.http.post(`${this.BASE_API_URL}/create`, body);
+  }
+
+  editService(serviceId: number, newData: Service) {
+    return this.http.put(`${this.BASE_API_URL}/${serviceId}/edit`, newData);
+  }
+
+  deleteService(serviceId: number) {
+    return this.http.delete(`${this.BASE_API_URL}/${serviceId}/delete`);
   }
 
 }
