@@ -115,7 +115,7 @@ export class CreateServiceFormComponent {
     this.form.patchValue({
       [fieldId]: finalValue
     });
-    this.detectChanges();
+    if (this.isEdit) this.detectChanges();
   }
 
   handleSubmitButton() {

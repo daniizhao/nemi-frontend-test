@@ -82,7 +82,7 @@ export class MapComponent implements AfterViewInit {
   }
 
   onMarkerClick(event: google.maps.MapMouseEvent) {
-    let marker = this.markers.find(m => m.lat === event.latLng?.lat() && m.lng === event.latLng.lng());
+    let marker = this._markers.find(m => m.lat === event.latLng?.lat() && m.lng === event.latLng.lng());
     if (marker) {
       this.openInfoWindow(
         marker?.name,
