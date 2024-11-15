@@ -1,0 +1,69 @@
+{
+  "SERVICES": {
+    "TITLE": "Services",
+    "TABLE_HEADERS": {
+      "STATUS": "Status",
+      "ID": "ID",
+      "NAME": "Name",
+      "AREA": "Area",
+      "CLIENT": "Client",
+      "DURATION": "Duration"
+    },
+    "DATA": {
+      "STATUS": {
+        "ACTIVE": "Active",
+        "INACTIVE": "Inactive"
+      },
+      "EMPTY": "Seems you don't have any services. Create one!",
+      "NO_DATA": "No data matches the filter"
+    },
+    "DELETE": {
+      "TITLE": "Delete {{serviceName}} service",
+      "DESCRIPTION": "Are you sure?",
+      "SUCCESS": "Service deleted successfully"
+    }
+  },
+  "CREATE_SERVICE": {
+    "TITLE": "New Service",
+    "EDIT_TITLE": "Edit Service",
+    "FORM_FIELDS": {
+      "ID": "ID",
+      "NAME": "Name",
+      "AREA": "Area of service",
+      "CLIENT": "Client of the service",
+      "DURATION": "Duration",
+      "CENTER_LOC": "Center of service",
+      "LAT": "Latitude",
+      "LNG": "Longitude",
+      "ACTIVE": "Active"
+    },
+    "MESSAGES": {
+      "REQUIRED": "Field is required.",
+      "SUCCESS_CREATE": "Service created successfully!",
+      "SUCCESS_EDIT": "Service edited successfully!"
+    },
+    "LABELS": {
+      "CREATE": "Create New Service",
+      "EDIT": "Edit Service"
+    },
+    "MAP": {
+      "MARKERS_INFO": "Click on the map to add free points",
+      "ADD_MARKER": {
+        "TITLE": "Add free point",
+        "DESCRIPTION": "Name"
+      }
+    }
+  },
+  "LABELS": {
+    "SEARCH": "Search",
+    "NEW": "New",
+    "CANCEL": "Cancel",
+    "OK": "Ok",
+    "DELETE": "Delete",
+    "YES": "Yes",
+    "NO": "No"
+  },
+  "ERROR": {
+    "INTERNAL": "Something went wrong, try again later."
+  }
+}

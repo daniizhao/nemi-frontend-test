@@ -1,0 +1,25 @@
+<div class="time-picker-wrapper">
+  <mat-form-field>
+    <mat-label>{{ label | translate }}</mat-label>
+    <input matInput type="time" [readonly]="true" [required]="required" (focus)="toggleShowDropdown(true)" (blur)="toggleShowDropdown(false)" [value]="duration" [step]="1"/>
+  </mat-form-field>
+  @if (showDropdown) {
+    <div class="time-picker-dropdown" (mousedown)="preventBlurOnDropdown($event)">
+      <div class="time-slider">
+        @for (hour of hourOptions; track $index) {
+          <span class="time-option" [ngClass]="{'selected': hour === splitTime[0]}" (click)="onSelectChange(0, hour)">{{hour}}</span>
+        }
+      </div>
+      <div class="time-slider">
+        @for (min of minuteOptions; track $index) {
+          <span class="time-option" [ngClass]="{'selected': min === splitTime[1]}" (click)="onSelectChange(1, min)">{{min}}</span>
+        }
+      </div>
+      <div class="time-slider">
+        @for (sec of secondsOptions; track $index) {
+          <span class="time-option" [ngClass]="{'selected': sec === splitTime[2]}" (click)="onSelectChange(2, sec)">{{sec}}</span>
+        }
+      </div>
+    </div>
+  }
+</div>

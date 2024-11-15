@@ -1,0 +1,14 @@
+<div>
+  <mat-form-field>
+    <mat-label>{{label | translate}}</mat-label>
+    <mat-select
+      [required]="required"
+      [value]="value"
+      (selectionChange)="handleSelectionChange($event)"
+    >
+      @for (item of options; track $index) {
+        <mat-option [value]="item">{{item}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</div>

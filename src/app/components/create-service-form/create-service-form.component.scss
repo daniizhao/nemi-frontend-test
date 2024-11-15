@@ -1,0 +1,46 @@
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  .form-row-container {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    width: 100%;
+    .info-text {
+      display: flex;
+      align-items: center;
+      height: 16px;
+      font-size: small;
+      mat-icon {
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .map-container {
+      min-height: 400px;
+      height: 100%;
+    }
+  }
+  .form-column-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+  .form-container {
+    width: 100%;
+    .form-inputs {
+      width: 40%;
+    }
+  }
+  .label {
+    align-self: flex-start;
+  }
+  .buttons-container {
+    justify-content: center;
+    margin-top: 16px;
+  }
+}

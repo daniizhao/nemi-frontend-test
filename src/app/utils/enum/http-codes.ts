@@ -1,0 +1,5 @@
+export enum HTTP_CODES {
+  SUCCESS = 200,
+  CONFLICT = 409,
+  INTERNAL = 500
+}

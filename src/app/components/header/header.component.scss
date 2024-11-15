@@ -1,0 +1,16 @@
+.header-wrapper {
+  padding: 16px 64px;
+  background-color: var(--secondary-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  .header-title {
+    font-size: xx-large;
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+  .clickable {
+    cursor: pointer;
+  }
+}

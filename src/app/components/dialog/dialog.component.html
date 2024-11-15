@@ -1,0 +1,19 @@
+<div class="dialog-wrapper">
+  <h2 matDialogTitle>{{ data.title | translate }}</h2>
+  <mat-dialog-content>
+    <p>
+      {{ data.description| translate }}
+    </p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <app-button
+      [label]="data.confirmTextButton"
+      (onClick)="onConfirm()"
+    ></app-button>
+    <app-button
+      [label]="data.cancelTextButton"
+      [style]="buttonStyles.SECONDARY"
+      (onClick)="onCancel()"
+    ></app-button>
+  </mat-dialog-actions>
+</div>

@@ -1,0 +1,115 @@
+<div class="table-wrapper">
+  <div class="table-menu-container">
+    <div>
+      <app-input
+        [label]="'LABELS.SEARCH'"
+        [icon]="'search'"
+        (onKeyUp)="applyFilters($event)"
+      ></app-input>
+    </div>
+    @if (showCreateButton) {
+      <div>
+        <app-button
+          [label]="createButtonText"
+          [icon]="createButtonIcon"
+          (onClick)="handleCreateButtonClick()"
+        ></app-button>
+      </div>
+    }
+  </div>
+  <table mat-table [dataSource]="dataSource" multiTemplateDataRows>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>{{"SERVICES.TABLE_HEADERS.STATUS" | translate}}</th>
+      <td mat-cell *matCellDef="let element">
+        <div class="status" [ngClass]="element.active ? 'active' : 'inactive'">
+          {{ (element.active ? 'SERVICES.DATA.STATUS.ACTIVE' : 'SERVICES.DATA.STATUS.INACTIVE') | translate }}
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>{{"SERVICES.TABLE_HEADERS.ID" | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>{{"SERVICES.TABLE_HEADERS.NAME" | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="area">
+      <th mat-header-cell *matHeaderCellDef>{{"SERVICES.TABLE_HEADERS.AREA" | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{ element.area }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="client">
+      <th mat-header-cell *matHeaderCellDef>{{"SERVICES.TABLE_HEADERS.CLIENT" | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{ element.client }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="duration">
+      <th mat-header-cell *matHeaderCellDef>{{"SERVICES.TABLE_HEADERS.DURATION" | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{ element.duration }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="expand">
+      <th mat-header-cell *matHeaderCellDef class="actions-column"></th>
+      <td mat-cell *matCellDef="let element" class="actions-column">
+        <div class="action-buttons-container">
+          <div class="action-button" (click)="handleEditButtonClick(element.id)">
+            <mat-icon>edit</mat-icon>
+          </div>
+          <div class="action-button" (click)="handleDeleteButtonClick(element.id)">
+            <mat-icon>delete</mat-icon>
+          </div>
+          <div class="action-button" (click)="onExpandRow(element)">
+            @if (expandedElement === element) {
+              <mat-icon>keyboard_arrow_up</mat-icon>
+            } @else {
+              <mat-icon>keyboard_arrow_down</mat-icon>
+            }
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- Expanded content to show map with markers -->
+     <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+        <div class="element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+          <app-map
+            [center]="{lat: element.lat, lng: element.lng}"
+            [markers]="element.freePoints"
+          ></app-map>
+        </div>
+      </td>
+     </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']"
+      class="detail-row"
+    ></tr>
+
+    <!--
+    using class based directives as of 13/11/2024 is the only way to make work the matNoDataRow directive.
+    Issue is open on github: https://github.com/angular/components/issues/22349
+     -->
+    <tr class="mat-row no-data" *matNoDataRow>
+      @if (dataSource.data.length === 0) {
+        <td class="mat-cell" [colSpan]="displayedColumns.length"> {{ 'SERVICES.DATA.EMPTY' | translate}} </td>
+      }
+      @if (dataSource.data.length > 0 && dataSource.filteredData.length === 0) {
+        <td class="mat-cell" [colSpan]="displayedColumns.length"> {{ 'SERVICES.DATA.NO_DATA' | translate}} </td>
+      }
+    </tr>
+
+  </table>
+
+  <mat-paginator
+    [pageSize]="10"
+    [length]="dataSource.data.length"
+  >
+  </mat-paginator>
+
+</div>

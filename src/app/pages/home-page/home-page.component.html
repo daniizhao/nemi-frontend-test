@@ -1,0 +1,15 @@
+<app-header
+  [title]="'SERVICES.TITLE'"
+  (onTitleClick)="onNavigate('')"
+></app-header>
+<div class="home-wrapper">
+  <app-table
+    [serviceData]="services"
+    [displayedColumns]="['status', 'id', 'name', 'area', 'client', 'duration', 'expand']"
+    [createButtonText]="'CREATE_SERVICE.TITLE'"
+    [createButtonIcon]="'add'"
+    (onCreateButtonClick)="onNavigate('/create')"
+    (onEditButtonClick)="onEditService($event)"
+    (onDeleteButtonClick)="onDeleteService($event)"
+  ></app-table>
+</div>

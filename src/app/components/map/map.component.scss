@@ -1,0 +1,12 @@
+.marker-form {
+  display: none;
+}
+
+.marker-form-content {
+  padding: 8px;
+  .buttons-container {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+}

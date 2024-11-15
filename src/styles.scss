@@ -1,1 +1,82 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+@use './m3-theme.scss';
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
+
+:root {
+  @include mat.all-component-themes(m3-theme.$light-theme);
+
+  --primary-color: #0dedab;
+  --primary-color-lighter: color-mix(in srgb, var(--primary-color), white 75%);
+
+  --secondary-color: #280a54;
+  --secondary-color-lighter: color-mix(in srgb, var(--secondary-color), white 75%);
+
+  --layer-color: rgba(21, 29, 25, 0.12);
+
+  //------------------------- CUSTOM COMPONENTS VARIABLES
+  // TABLE
+  --mat-table-background-color: transparent;
+  --mat-table-header-headline-color: white;
+  --mat-table-header-headline-weight: 900;
+  --mat-table-row-item-outline-color: var(--secondary-color);
+  --mat-table-row-item-outline-color: transparent;
+  --mat-paginator-container-background-color: white;
+
+  // TEXT FIELD
+  --mdc-filled-text-field-container-color: var(--primary-color-lighter);
+  --mdc-filled-text-field-focus-active-indicator-color: var(--primary-color);
+
+  // BUTTON
+  --mdc-filled-button-container-color: var(--primary-color);
+
+  // SELECT
+  --mat-select-panel-background-color: var(--primary-color-lighter);
+  --mat-option-selected-state-layer-color: var(--primary-color);
+
+  // CHECKBOX
+  --mdc-checkbox-selected-icon-color: var(--primary-color);
+  --mdc-checkbox-unselected-icon-color: var(--primary-color);
+  --mdc-checkbox-selected-focus-icon-color: var(--primary-color);
+  --mdc-checkbox-unselected-focus-icon-color: var(--primary-color);
+  --mdc-checkbox-unselected-hover-icon-color: var(--primary-color);
+  --mdc-checkbox-selected-pressed-icon-color: var(--primary-color);
+  --mdc-checkbox-unselected-pressed-state-layer-opacity: 0;
+  --mdc-checkbox-selected-focus-state-layer-color: transparent;
+  --mdc-checkbox-selected-pressed-state-layer-color: transparent;
+  --mdc-checkbox-unselected-focus-state-layer-color: transparent;
+  --mdc-checkbox-unselected-hover-state-layer-color: transparent;
+  --mat-full-pseudo-checkbox-unselected-icon-color: transparent;
+
+  // SPINNER
+  --mdc-circular-progress-active-indicator-color: var(--primary-color);
+
+}
+
+// Comment out the line below if you want to use the pre-defined typography utility classes.
+// For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
+// @include mat.typography-hierarchy($nemi-frontend-test-theme);
+
+// Comment out the line below if you want to use the deprecated `color` inputs.
+// @include mat.color-variants-backwards-compatibility($nemi-frontend-test-theme);
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-form-field {
+  width: 100%;
+}
