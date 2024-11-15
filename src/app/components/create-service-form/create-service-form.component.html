@@ -1,7 +1,7 @@
 <div class="form-wrapper" >
   <form [formGroup]="form" class="form-container">
     <div class="form-row-container">
-      <div class="form-column-container">
+      <div class="form-column-container form-inputs">
         <app-input
           [required]="isEdit ? false : true"
           [type]="'number'"
@@ -44,8 +44,8 @@
             (onCheckboxChange)="onFieldChange('active', $event)"
           ></app-checkbox>
         </div>
-        <div class="form-row-container">
-          <span class="label">{{'CREATE_SERVICE.FORM_FIELDS.CENTER_LOC' | translate}}</span>
+        <div class="form-column-container">
+          <span class="label">{{'CREATE_SERVICE.FORM_FIELDS.CENTER_LOC' | translate}}:</span>
           <div class="form-row-container">
             <app-input
               [required]="true"
@@ -66,10 +66,6 @@
       </div>
       <div class="form-row-container">
         <div class="form-column-container">
-          <div class="info-text">
-            <mat-icon class="material-icons-outlined">info</mat-icon>
-            <div>{{ 'CREATE_SERVICE.MAP.MARKERS_INFO' | translate}}</div>
-          </div>
           <div class="map-container">
             <app-map
               [editable]="true"
@@ -77,6 +73,10 @@
               [markers]="form.controls['freePoints'].value"
               (onMarkerAdded)="onFieldChange('freePoints', $event)"
             ></app-map>
+          </div>
+          <div class="info-text">
+            <mat-icon class="material-icons-outlined">info</mat-icon>
+            <div>{{ 'CREATE_SERVICE.MAP.MARKERS_INFO' | translate}}</div>
           </div>
         </div>
       </div>

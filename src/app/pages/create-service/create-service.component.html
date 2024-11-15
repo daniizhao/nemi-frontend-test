@@ -2,7 +2,12 @@
   (onTitleClick)="onNavigate('')"
 ></app-header>
 <div class="content-wrapper">
-  <div class="title">{{ (isEdit ? 'CREATE_SERVICE.EDIT_TITLE' : 'CREATE_SERVICE.TITLE') | translate }}</div>
+  <div class="title-container">
+    <div class="icon" (click)="onNavigate('')">
+      <mat-icon>arrow_back_ios</mat-icon>
+    </div>
+    <div class="title">{{ (isEdit ? 'CREATE_SERVICE.EDIT_TITLE' : 'CREATE_SERVICE.TITLE') | translate }}</div>
+  </div>
   <app-create-service-form
     [initialData]="serviceData"
     [isEdit]="isEdit"

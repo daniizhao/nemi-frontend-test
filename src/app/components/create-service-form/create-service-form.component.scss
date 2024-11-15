@@ -32,11 +32,12 @@
   }
   .form-container {
     width: 100%;
+    .form-inputs {
+      width: 40%;
+    }
   }
   .label {
-    width: fit-content;
-    align-self: flex-end;
-    margin-bottom: 20px;
+    align-self: flex-start;
   }
   .buttons-container {
     justify-content: center;

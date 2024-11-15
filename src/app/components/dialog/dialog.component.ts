@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogActions, MatDialogContent, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogActions, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 import { ButtonComponent } from '../button/button.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { DialogData } from '../../utils/interfaces/dialog';
@@ -9,10 +9,11 @@ import { BUTTON_STYLES } from '../../utils/enum/button-styles';
   selector: 'app-dialog',
   standalone: true,
   imports: [
+    MatDialogTitle,
     MatDialogContent,
     MatDialogActions,
     ButtonComponent,
-    TranslateModule
+    TranslateModule,
   ],
   templateUrl: './dialog.component.html',
   styleUrl: './dialog.component.scss'

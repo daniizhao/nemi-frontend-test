@@ -5,6 +5,7 @@ import { CreateServiceFormComponent } from "../../components/create-service-form
 import { TranslateModule } from '@ngx-translate/core';
 import { ServicesService } from '../../services/services.service';
 import Service from '../../utils/interfaces/service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-create-service',
@@ -12,7 +13,8 @@ import Service from '../../utils/interfaces/service';
   imports: [
     HeaderComponent,
     CreateServiceFormComponent,
-    TranslateModule
+    TranslateModule,
+    MatIconModule
   ],
   templateUrl: './create-service.component.html',
   styleUrl: './create-service.component.scss'

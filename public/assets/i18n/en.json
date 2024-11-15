@@ -59,7 +59,9 @@
     "NEW": "New",
     "CANCEL": "Cancel",
     "OK": "Ok",
-    "DELETE": "Delete"
+    "DELETE": "Delete",
+    "YES": "Yes",
+    "NO": "No"
   },
   "ERROR": {
     "INTERNAL": "Something went wrong, try again later."

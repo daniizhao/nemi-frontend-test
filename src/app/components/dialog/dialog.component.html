@@ -7,11 +7,11 @@
   </mat-dialog-content>
   <mat-dialog-actions>
     <app-button
-      [label]="'LABELS.OK'"
+      [label]="data.confirmTextButton"
       (onClick)="onConfirm()"
     ></app-button>
     <app-button
-      [label]="'LABELS.CANCEL'"
+      [label]="data.cancelTextButton"
       [style]="buttonStyles.SECONDARY"
       (onClick)="onCancel()"
     ></app-button>

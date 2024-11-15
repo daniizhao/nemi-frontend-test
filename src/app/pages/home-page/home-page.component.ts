@@ -65,7 +65,9 @@ export class HomePageComponent implements OnInit {
       {
         data: {
           title: this.translateService.instant('SERVICES.DELETE.TITLE', {serviceName: serviceName}),
-          description: this.translateService.instant('SERVICES.DELETE.DESCRIPTION')
+          description: this.translateService.instant('SERVICES.DELETE.DESCRIPTION'),
+          confirmTextButton: 'LABELS.YES',
+          cancelTextButton: 'LABELS.NO'
         }
       }
     );

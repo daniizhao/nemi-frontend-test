@@ -77,11 +77,6 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-mat-form-field,
-app-input,
-app-select,
-app-checkbox,
-app-time-picker,
-app-create-service-form {
+mat-form-field {
   width: 100%;
 }
