@@ -28,5 +28,5 @@ Some additional features have been implemented to improve the platform usability
 * **Actions buttons:** Added an extra column with icons with the following features:
   - **Edit:** Allows user to edit an existing service.
   - **Delete:** Allows user to delete an existing service.
-  - **Expand row:** Allows user to selected row to show a map, centered in the correspondint center of service and its corresponding freePoints.
+  - **Expand row:** Allows user to expand the selected row showing a map, centered in the corresponding center of service and its corresponding freePoints.
 
